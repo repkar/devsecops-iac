@@ -31,7 +31,7 @@ jobs:
           deploymentName: rg-githubactions
           region: westeurope
           subscriptionId: 89c3d36a-668d-4d48-a162-830795de0c48
-          template: ./arm-templates/storageaccount.json
+          template: ./arm-templates/resourcegroup.json
 
 
 
