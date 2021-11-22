@@ -43,8 +43,3 @@ jobs:
           template: ./arm-templates/storageaccount.json
           parameters: ./arm-templates/storageaccount.parameters.json
           deploymentMode: incremental
-
-
-
-      - name: Run a one-line script
-        run: echo Čau, lidi!
