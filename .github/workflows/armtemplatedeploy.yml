@@ -31,7 +31,7 @@ jobs:
           scope: subscription
           deploymentName: rg-githubactions
           region: westeurope
-          subscriptionId: 89c3d36a-668d-4d48-a162-830795de0c48
+          subscriptionId: 1bb8d56c-4ac4-4753-9fd4-c0fd37a85de0
           template: ./arm-templates/resourcegroup.json
 
       - name: Deploy storage account
@@ -41,7 +41,7 @@ jobs:
           scope: resourcegroup
           resourceGroupName: rg-githubactions
           region: westeurope
-          subscriptionId: 89c3d36a-668d-4d48-a162-830795de0c48
+          subscriptionId: 1bb8d56c-4ac4-4753-9fd4-c0fd37a85de0
           template: ./arm-templates/storageaccount.json
           parameters: ./arm-templates/storageaccount.parameters.json
           deploymentMode: incremental
@@ -53,7 +53,7 @@ jobs:
           scope: resourcegroup
           resourceGroupName: rg-githubactions
           region: westeurope
-          subscriptionId: 89c3d36a-668d-4d48-a162-830795de0c48
+          subscriptionId: 1bb8d56c-4ac4-4753-9fd4-c0fd37a85de0
           template: ./arm-templates/virtualmachine.json
           parameters:
             adminPassword=${{ secrets.ADMIN_PASSWORD }}
