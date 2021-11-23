@@ -59,8 +59,15 @@ jobs:
             adminPassword=${{ secrets.ADMIN_PASSWORD }}
           deploymentMode: incremental
 
-      - name: Deploy Azure KeyVault
+      - name: Set secret
         uses: Azure/cli@1.0.4
         with:
           inlinescript: |
             az keyvault secret set -n "ADMINPASSWORD" --vault-name "keyvault-githubactions2" --value "Heslo123."
+      - uses: Azure/get-keyvault-secrets@v1
+        with:
+          keyvault: "keyvault-githubactions2"
+          secrets: 'ADMINPASSWORD'
+        id: myGetSecretAction
+      
+      - run: echo ${{ steps.myGetSecretAction.outputs.ADMINPASSWORD}}
