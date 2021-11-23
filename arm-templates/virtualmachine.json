@@ -109,7 +109,7 @@
                 "osProfile": {
                     "computerName": "ubuntuVM1",
                     "adminUsername": "SUPERADMIN",
-                    "adminPassword": "Heslo123."
+                    "adminPassword": "[parameters('adminPassword')]"
                 },
                 "storageProfile": {
                     "imageReference": {
