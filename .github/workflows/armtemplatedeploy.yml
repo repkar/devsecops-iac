@@ -41,12 +41,9 @@ jobs:
           deploymentMode: incremental
 
       - name: Deploy Key Vault
-        uses: Azure/arm-deploy@v1
+        uses: Azure/cli@1.0.4
         with:
-          scope: resourcegroup
-          resourceGroupName: rg-githubactions
-          region: westeurope
-          subscriptionId: 89c3d36a-668d-4d48-a162-830795de0c48
-          template: ./arm-templates/keyvault.json
-          deploymentMode: incremental
+          inlinescript: |
+            az keyvault create --name "keyvault-githubactions" --resource-group "rg-githubactions" --location "westeurope"
+
           
