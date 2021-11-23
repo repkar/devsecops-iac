@@ -45,7 +45,7 @@ jobs:
         with:
           scope: resourcegroup
           resourceGroupName: rg-githubactions
-          subscriptionId: 4d0243f5-b1f4-4bd0-91bb-ce6481e6e810
+          subscriptionId: 89c3d36a-668d-4d48-a162-830795de0c48
           template: ./arm-templates/virtualmachine.json
           parameters: 
             adminPassword=${{ secrets.ADMIN_PASSWORD }}
