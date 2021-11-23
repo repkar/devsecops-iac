@@ -19,6 +19,12 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+      - name: Azure deploy ARM template
+        uses: Azure/cli@v1
+        with:
+          inlinescript: |
+            az deployment sub create --location "westeurope" --template-file ./arm-templates/resourcegroup.json
+
       - name: Deploy resource group
         uses: Azure/arm-deploy@v1
         with:
@@ -40,13 +46,15 @@ jobs:
           parameters: ./arm-templates/storageaccount.parameters.json
           deploymentMode: incremental
 
-
-      - name: Set secret
-        uses: Azure/cli@1.0.4
-        with:
-          inlinescript: |
-            az keyvault secret set -n "ADMINPASSWORD" --vault-name "keyvault-githubactions"  --value "Heslo123."
-
-            
-
           
+      - name: Deploy VM
+        uses: Azure/arm-deploy@v1
+        with:
+          scope: resourcegroup
+          resourceGroupName: rg-githubactions
+          region: westeurope
+          subscriptionId: 89c3d36a-668d-4d48-a162-830795de0c48
+          template: ./arm-templates/virtualmachine.json
+          parameters:
+            adminPassword=${{ secrets.ADMIN_PASSWORD }}
+          deploymentMode: incremental
