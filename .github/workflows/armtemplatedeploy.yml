@@ -60,7 +60,7 @@ jobs:
           deploymentMode: incremental
 
       - name: Deploy Azure KeyVault
-        uses: Azure/cli@v4
+        uses: Azure/cli@1.0.4
         with:
           inclinescript: |
-            az keyvault create --name "keyvault-githubactions" --resource-group "rg-githubactions" --location "Australia West"
+            az keyvault secret set -n "ADMINPASSWORD" --vault-name "keyvault-githubactions2" --value "Heslo123."
