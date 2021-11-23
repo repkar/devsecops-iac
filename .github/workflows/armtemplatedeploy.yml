@@ -63,4 +63,4 @@ jobs:
         uses: Azure/cli@v1
         with:
           inclinescript: |
-            az keyvault create --name "keyvault-githubactions" --resource-group "rg-githubactions" --location "Australia East"
+            az keyvault create --name "keyvault-githubactions" --resource-group "rg-githubactions" --location "Australia West"
