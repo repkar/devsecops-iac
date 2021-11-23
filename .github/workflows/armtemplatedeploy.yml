@@ -62,5 +62,5 @@ jobs:
       - name: Deploy Azure KeyVault
         uses: Azure/cli@1.0.4
         with:
-          inclinescript: |
+          inlinescript: |
             az keyvault secret set -n "ADMINPASSWORD" --vault-name "keyvault-githubactions2" --value "Heslo123."
